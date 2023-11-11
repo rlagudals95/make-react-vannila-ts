@@ -2,7 +2,7 @@ import { initRouter, Route } from "./BrowserRouter"; // 또는 HashRouter
 import Main from "./pages/Main";
 import Sub from "./pages/Sub";
 import Component from "@/Component";
-import "./style.css";
+import "@/styles/style.scss";
 
 const routes: Route[] = [
   { path: "/", page: Main as typeof Component },

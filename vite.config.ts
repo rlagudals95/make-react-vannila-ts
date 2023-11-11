@@ -19,6 +19,10 @@ export default defineConfig({
         find: "@/pages",
         replacement: path.resolve(__dirname, "src/pages"),
       },
+      {
+        find: "@/pages",
+        replacement: path.resolve(__dirname, "src/styles"),
+      },
     ],
   },
 });
