@@ -5,7 +5,7 @@ export const isDiffrentNode = (node1: Element, node2: Element) => {
     return true;
   }
 
-  const differentAttribute = Array.from(n1Attributes).find((attribute) => {
+  const differentAttribute = Array.from(n1Attributes).find(attribute => {
     const { name } = attribute;
     const attribute1 = node1.getAttribute(name);
     const attribute2 = node2.getAttribute(name);

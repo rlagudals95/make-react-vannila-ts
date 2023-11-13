@@ -1,16 +1,22 @@
-import Header from "@/components/Header";
-import Component, { PropsType, StateType } from "@/core/Component";
+import Header from '@/components/Header';
+import Component, { PropsType, StateType } from '@/core/Component';
+import jsx from '@/core/JSX';
 
 export default class Main extends Component<PropsType, StateType> {
-  didMount(): void {
-    const $header = this.target.querySelector("header");
-    new Header($header as Element, { propTest: "mainprop" });
+  $header: Element;
+
+  constructor(props: PropsType) {
+    super(props);
+
+    this.$header = new Header({}).$dom;
+
+    this.setDom();
   }
 
-  template() {
-    return `
+  render() {
+    return jsx`
       <div class='main-page'>
-        <header></header>
+        ${this.$header}
         MainPage
       </div>
     `;
