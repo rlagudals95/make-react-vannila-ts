@@ -1,6 +1,6 @@
-import Component from "@/Component";
-import { router } from "@/BrowserRouter";
-
+import Component from "@/core/Component";
+import { router } from "@/core/BrowserRouter";
+import jsx from "@/core/JSX";
 interface HeaderProps {
   propTest: string;
 }
@@ -21,7 +21,7 @@ export default class Header extends Component<HeaderProps, HeaderState> {
   template() {
     const { stateTest } = this.state;
     return `
-    <div class='header'>
+    <div class='eader'>
       ${stateTest}
       <div id='main'>MainPage</div>
       <div id='sub'>SubPage</div>

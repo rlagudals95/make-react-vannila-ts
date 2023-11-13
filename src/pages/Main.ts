@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import Component, { PropsType, StateType } from "@/Component";
+import Component, { PropsType, StateType } from "@/core/Component";
 
 export default class Main extends Component<PropsType, StateType> {
   didMount(): void {

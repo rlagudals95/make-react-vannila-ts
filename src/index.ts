@@ -1,7 +1,7 @@
-import { initRouter, Route } from "./BrowserRouter"; // 또는 HashRouter
+import { initRouter, Route } from "@/core/BrowserRouter";
 import Main from "./pages/Main";
 import Sub from "./pages/Sub";
-import Component from "@/Component";
+import Component from "@/core/Component";
 import "./style.css";
 
 const routes: Route[] = [

@@ -1,4 +1,4 @@
-import { deepEqual } from "./utils/compare";
+import { deepEqual } from "../utils/compare";
 
 export interface PropsType {}
 export interface StateType {}
