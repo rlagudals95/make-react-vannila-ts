@@ -1,3 +1,5 @@
+import { deepEqual } from "./utils/compare";
+
 export interface PropsType {}
 export interface StateType {}
 
@@ -45,7 +47,7 @@ export default class Component<P extends PropsType, S extends StateType> {
 
   setState(newState: Partial<S>) {
     const nextState = { ...this.state, ...newState };
-    if (JSON.stringify(this.state) === JSON.stringify(nextState)) {
+    if (deepEqual(this.state, nextState)) {
       return;
     }
     this.state = nextState;
