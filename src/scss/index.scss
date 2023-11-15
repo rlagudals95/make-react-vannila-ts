@@ -23,25 +23,21 @@ html {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  text-align: center;
 }
 
 .header {
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   background-color: $green-background;
   font-size: 16px;
-  padding: 12px;
+  padding: 0.5rem 0.75rem;
   color: #fff;
   display: flex;
   gap: 10px;
   justify-content: flex-end;
   box-sizing: border-box;
+  z-index: 1;
 
   & > div {
     cursor: pointer;
@@ -60,7 +56,7 @@ html {
   padding: 15px;
   display: flex;
   gap: 10px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   box-sizing: border-box;
   border-top-left-radius: 15px; /* 좌측 상단 border radius 추가 */
   border-top-right-radius: 15px; /* 우측 상단 border radius 추가 */
@@ -82,6 +78,7 @@ html {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
+  padding: 1rem 0;
 
   & > div {
     box-shadow: $item-box-shadow;
@@ -112,6 +109,7 @@ html {
   font-weight: 500;
   line-height: 1.125rem;
   letter-spacing: -0.025rem;
+  width: fit-content;
 }
 
 .square-image {

@@ -74,15 +74,12 @@ const jsx = (strings: TemplateStringsArray, ...args: any[]): HTMLElement => {
         const df = document.createDocumentFragment();
 
         arg.forEach(($el) => {
-          // 문자열을 파싱하여 노드로 만든 후 DocumentFragment에 추가
+          // 새로운 div를 만들지 않고, 바로 파싱하여 DocumentFragment에 추가
           const tempDiv = document.createElement("div");
           tempDiv.innerHTML = $el;
-          const childNodes = tempDiv.childNodes;
 
-          // 모든 자식 노드를 DocumentFragment에 추가
-          while (childNodes.length > 0) {
-            df.appendChild(childNodes[0]);
-          }
+          // 모든 자식 노드를 DocumentFragment에 직접 추가
+          df.append(...tempDiv.childNodes);
         });
 
         return df;
