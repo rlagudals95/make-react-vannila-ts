@@ -72,7 +72,19 @@ const jsx = (strings: TemplateStringsArray, ...args: any[]): HTMLElement => {
       if (arg instanceof Array) {
         // 배열인 경우, 각 엘리먼트를 DocumentFragment에 추가
         const df = document.createDocumentFragment();
-        arg.forEach(($el) => df.appendChild($el));
+
+        arg.forEach(($el) => {
+          // 문자열을 파싱하여 노드로 만든 후 DocumentFragment에 추가
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = $el;
+          const childNodes = tempDiv.childNodes;
+
+          // 모든 자식 노드를 DocumentFragment에 추가
+          while (childNodes.length > 0) {
+            df.appendChild(childNodes[0]);
+          }
+        });
+
         return df;
       }
       return buildDocumentFragmentWith(arg);
