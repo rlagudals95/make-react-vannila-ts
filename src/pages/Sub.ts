@@ -1,17 +1,28 @@
 import Header from "@/components/Header";
-import Component, { PropsType, StateType } from "@/Component";
+import Component, { PropsType, StateType } from "@/core/Component";
+import jsx from "@/core/JSX";
 
 export default class Sub extends Component<PropsType, StateType> {
-  didMount(): void {
-    const $header = this.target.querySelector("header");
-    new Header($header as Element, { propTest: "subprop" });
+  $header: Element;
+
+  constructor(props: PropsType) {
+    super(props);
+
+    this.$header = new Header({}).$dom;
+
+    this.setDom();
   }
 
-  template() {
-    return `
+  render() {
+    return jsx`
       <div class='main-page'>
-        <header></header>
+        ${this.$header}
         SubPage
+
+      
+        <div class='name'>
+          19951022 김형민
+        <div>
       </div>
     `;
   }

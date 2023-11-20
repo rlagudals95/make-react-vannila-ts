@@ -1,40 +1,22 @@
-import Component from "@/Component";
-import { router } from "@/BrowserRouter";
+import Component, { PropsType, StateType } from "@/core/Component";
+import jsx from "@/core/JSX";
+import { $router } from "@/core/Router";
 
-interface HeaderProps {
-  propTest: string;
-}
-interface HeaderState {
-  stateTest: string;
-}
+export default class Header extends Component<PropsType, StateType> {
+  $headerDate: Element = jsx``;
 
-export default class Header extends Component<HeaderProps, HeaderState> {
-  setup() {
-    this.state = {
-      stateTest: "state",
-    };
+  constructor(props: PropsType) {
+    super(props);
+
+    this.setDom();
   }
-  didMount() {
-    const { propTest }: HeaderProps = this.props;
-    this.setState({ stateTest: this.state.stateTest + propTest });
-  }
-  template() {
-    const { stateTest } = this.state;
-    return `
-    <div class='header'>
-      ${stateTest}
-      <div id='main'>MainPage</div>
-      <div id='sub'>SubPage</div>
-    </div>
+
+  render() {
+    return jsx`
+      <header class='header'>
+        <div onClick=${() => $router.push("/")}>MainPage</div>
+        <div onClick=${() => $router.push("/sub")}>SubPage</div>
+      </header>
     `;
-  }
-
-  setEvent() {
-    this.addEvent("click", "#main", () => {
-      router.push("/");
-    });
-    this.addEvent("click", "#sub", () => {
-      router.push("/sub");
-    });
   }
 }
