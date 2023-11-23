@@ -37,6 +37,7 @@ const jsx = (strings: TemplateStringsArray, ...args: any[]): HTMLElement => {
     if (typeof value === "function") {
       // 함수인 경우 이벤트 리스너로 등록하고 해당 속성을 제거
       element.addEventListener(name.replace("on", "").toLowerCase(), value);
+
       element.removeAttribute(name);
     } else if (["string", "number"].includes(typeof value)) {
       // 문자열 또는 숫자인 경우, 해당 속성 값을 dirtyindex로 치환
