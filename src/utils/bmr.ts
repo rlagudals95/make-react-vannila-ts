@@ -3,7 +3,7 @@ export enum Gender {
   Female = "female",
 }
 
-interface UserInfo {
+export interface UserHealthInfo {
   gender: Gender;
   height: number; // 신장 (cm)
   weight: number; // 체중 (kg)
@@ -32,7 +32,7 @@ const FEMALE_BMR_CONSTANTS = {
 };
 
 /** 성별, 키, 몸무게, 나이를 입력받아 기초 대사량을 구하는 함수  */
-export function calculateBMR(userInfo: UserInfo): number {
+export function calculateBMR(userInfo: UserHealthInfo): number {
   const { gender, height, weight, age } = userInfo;
 
   let bmr: number;
