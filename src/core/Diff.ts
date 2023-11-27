@@ -37,12 +37,13 @@ export const isDiffrentNode = (node1: Element, node2: Element) => {
 };
 
 // 가상 DOM과 실제 DOM 간의 차이를 계산하여 적용하는 함수
+// parentNode - body
 const diff = (parentNode: Element, realNode: Element, virtualNode: Element) => {
   // 만약 실제 노드가 있고, 가상 노드가 없다면 실제 노드를 제거
-  if (realNode && !virtualNode) {
-    realNode.remove();
-    return;
-  }
+  // if (realNode && !virtualNode) {
+  //   realNode.remove();
+  //   return;
+  // }
 
   // 만약 실제 노드가 없고, 가상 노드가 있다면 가상 노드를 부모 노드에 추가
   if (!realNode && virtualNode) {

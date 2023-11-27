@@ -24,15 +24,11 @@ export default class Main extends Component<PropsType, MainState> {
       height: 0,
       gender: Gender.Male,
       age: 0,
-    } as UserHealthInfo;
+    } as MainState;
 
     this.handleChangeWeight = (e: InputEvent) => {
       const target = e.target as HTMLInputElement;
-      this.setState({ ...this.state, weight: parseInt(target.value) });
-    };
-
-    this.handleClickWeight = () => {
-      console.log(this.state.weight);
+      this.setState({ ...this.state, weight: parseFloat(target.value) });
     };
 
     this.setDom();
@@ -42,17 +38,11 @@ export default class Main extends Component<PropsType, MainState> {
     return jsx`
       <div class='main-page'>
         ${this.$header}
-        ${JSON.stringify(this.state)}
+        ${this.state.weight}
         <div class='flex-box-column'>
-          <input type="text" value=${this.state.weight} onChange=${
-      this.handleChangeWeight
-    } required>
+          <input type="number" value=${this.state.weight} onChange=${this.handleChangeWeight} required>
         </div>
-
-
-        <div class='flex-box-column'>
-          <input type="text" onClick=${this.handleClickWeight} required>
-        </div>
+     
       </div>
     `;
   }
