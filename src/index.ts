@@ -22,7 +22,9 @@ export const updateRealDOM = () => {
   // requestAnimationFrame을 사용하여 다음 프레임에 업데이트를 예약
   window.requestAnimationFrame(() => {
     // $app이 존재하면 diff 함수를 호출하여 가상 DOM과 실제 DOM 간의 차이를 계산하고 업데이트 수행
-    if ($app) diff(document.body, $app, window.virtualDOM);
+    if ($app) {
+      diff(document.body, $app, window.virtualDOM);
+    }
   });
 };
 

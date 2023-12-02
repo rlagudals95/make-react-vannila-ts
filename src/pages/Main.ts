@@ -2,71 +2,34 @@ import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 import Component, { PropsType, StateType } from "@/core/Component";
 import jsx from "@/core/JSX";
+import { Gender, UserHealthInfo } from "@/utils/bmr";
 
-interface MockData {
-  image: string;
-  title: string;
-  desc: string;
-}
-export default class Main extends Component<PropsType, StateType> {
+type MainState = UserHealthInfo & {};
+
+export default class Main extends Component<PropsType, MainState> {
   $header: Element;
   $bottomNav: Element;
-  $mockDadas: MockData[] = [
-    {
-      image:
-        "https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg",
-      title: "타이틀1",
-      desc: "상세내용 입니다1.",
-    },
-    {
-      image:
-        "https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg",
-      title: "타이틀2",
-      desc: "상세내용 입니다2.",
-    },
-    {
-      image:
-        "https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg",
-      title: "타이틀3",
-      desc: "상세내용 입니다3.",
-    },
-    {
-      image:
-        "https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg",
-      title: "타이틀4",
-      desc: "상세내용 입니다4.",
-    },
-    {
-      image:
-        "https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg",
-      title: "타이틀4",
-      desc: "상세내용 입니다4.",
-    },
-    {
-      image:
-        "https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg",
-      title: "타이틀4",
-      desc: "상세내용 입니다4.",
-    },
-    {
-      image:
-        "https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg",
-      title: "타이틀4",
-      desc: "상세내용 입니다4.",
-    },
-    {
-      image:
-        "https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg",
-      title: "타이틀4",
-      desc: "상세내용 입니다4.",
-    },
-  ];
+
+  handleChangeWeight: (e: InputEvent) => void;
+  handleClickWeight: () => void;
 
   constructor(props: PropsType) {
     super(props);
 
     this.$header = new Header({}).$dom;
     this.$bottomNav = new BottomNav({}).$dom;
+
+    this.state = {
+      weight: 0,
+      height: 0,
+      gender: Gender.Male,
+      age: 0,
+    } as MainState;
+
+    this.handleChangeWeight = (e: InputEvent) => {
+      const target = e.target as HTMLInputElement;
+      this.setState({ ...this.state, weight: parseFloat(target.value) });
+    };
 
     this.setDom();
   }
@@ -75,19 +38,11 @@ export default class Main extends Component<PropsType, StateType> {
     return jsx`
       <div class='main-page'>
         ${this.$header}
-        <div class='grid-box'>
-          ${this.$mockDadas.map(
-            (data, index) =>
-              `
-              <div key='${index}' class='item-card'>
-                <img src='${data.image}' class='square-image'/>
-                <h1 class='title'>${data.title}</h1>
-                <p class='desc'>${data.desc}</p>
-              </div>
-              `
-          )}
+        ${this.state.weight}
+        <div class='flex-box-column'>
+          <input type="number" value=${this.state.weight} onChange=${this.handleChangeWeight} required>
         </div>
-        ${this.$bottomNav}
+     
       </div>
     `;
   }
