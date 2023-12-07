@@ -1,3 +1,58 @@
+## Component 클래스 
+
+이 코드는 간단한 React 스타일의 Component 클래스를 정의한 TypeScript 코드입니다. 
+해당 클래스는 컴포넌트의 생명주기와 DOM 업데이트를 관리하며, 각 컴포넌트 인스턴스는 고유한 ID를 갖습니다.
+
+```typescript
+  import Component, { PropsType, StateType } from './path-to-Component';
+
+  // 사용자 정의 컴포넌트 생성
+  class MyComponent extends Component<PropsType, StateType> {
+    render(): HTMLElement {
+      // 컴포넌트의 렌더링을 구현
+      const element = document.createElement('div');
+      element.textContent = 'Hello, World!';
+      return element;
+    }
+  }
+  
+  // 컴포넌트 인스턴스 생성
+  const myComponent = new MyComponent({});
+  
+  // 초기 렌더링 및 DOM 업데이트 수행
+  myComponent.setDom();
+  
+  // State 업데이트 및 실제 DOM 업데이트 수행
+  myComponent.setState({ newProp: 'new value' });
+```
+
+* 속성 및 메서드
+  * props: P: 컴포넌트의 속성을 저장합니다.
+  * state: S: 컴포넌트의 상태를 저장합니다.
+  * id: ComponentId: 컴포넌트 인스턴스의 고유한 ID입니다.
+  * $dom: Element: 실제 DOM 엘리먼트를 나타냅니다.
+  * shouldUpdate: boolean: 업데이트 여부를 나타내는 플래그입니다.
+
+* 생명주기 메서드
+  * willMount(): 컴포넌트가 마운트되기 전에 호출되는 메서드입니다.
+  * willUpdate(): 컴포넌트가 업데이트되기 전에 호출되는 메서드입니다.
+  * didMount(): 컴포넌트가 마운트된 후에 호출되는 메서드입니다.
+  * didUpdate(): 컴포넌트가 업데이트된 후에 호출되는 메서드입니다.
+
+* 기타 메서드
+  * setDom(): void: DOM을 설정하는 메서드로, willMount, render, didMount 메서드를 호출합니다.
+  * render(): HTMLElement | ChildNode | DocumentFragment: 렌더링 메서드로, 자식 클래스에서 반드시 구현되어야 합니다.
+  * updateDOM(): void: DOM을 업데이트하는 메서드로, 실제 DOM을 새로운 DOM으로 교체합니다.
+  * update(): void: 전체 업데이트를 수행하는 메서드로, willMount, willUpdate, updateDOM, didUpdate 메서드를 호출합니다.
+  * setState(newState: Partial<S>): void: State를 업데이트하고 전체 업데이트를 수행하는 메서드로, 실제 DOM을 업데이트합니다.
+
+* 예외 처리
+  * render 메서드는 자식 클래스에서 반드시 구현되어야 하며, 그렇지 않으면 에러가 발생합니다.
+  * 이 클래스를 사용하여 React 스타일의 컴포넌트를 만들고 관리할 수 있습니다. 해당 컴포넌트는 가상 DOM을 사용하여 업데이트를 추적하고, State 변경 시 실제 DOM을 업데이트하여 사용자 인터페이스를 반응적으로 유지합니다.
+
+
+
+
 
 ## React Diffing 알고리즘 구현
 이 코드는 React의 가상 DOM 조정 프로세스에서 중요한 부분인 React Diffing 알고리즘의 구현입니다. 
