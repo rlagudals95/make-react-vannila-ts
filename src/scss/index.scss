@@ -20,7 +20,7 @@ html {
 
 .main-page {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,13 +74,23 @@ html {
   }
 }
 
+.position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .flex-box-column {
+  margin: auto;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .grid-box {
@@ -131,11 +141,13 @@ html {
 }
 
 /** default input */
-input[type="text"] {
-  height: 32px;
+input[type="number"] {
+  height: 50px;
   font-size: 16px;
   width: 100%;
   border: 0;
   outline: none;
+  padding: 0 1rem;
+  border-radius: 1rem;
   background-color: rgb(233, 233, 233);
 }

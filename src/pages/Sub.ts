@@ -17,12 +17,14 @@ export default class Sub extends Component<PropsType, StateType> {
     return jsx`
       <div class='main-page'>
         ${this.$header}
-        SubPage
-
-      
-        <div class='name'>
-          19951022 김형민
-        <div>
+        <div class='position-center'>
+          <div class='flex-box-column'>
+            <div class='title'>SubPage</div>
+            <div>
+              19951022 김형민
+            </div>
+          </div>  
+        </div>
       </div>
     `;
   }

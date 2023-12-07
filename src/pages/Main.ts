@@ -1,17 +1,17 @@
 import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
-import Component, { PropsType, StateType } from "@/core/Component";
+import Component, { PropsType } from "@/core/Component";
 import jsx from "@/core/JSX";
 import { Gender, UserHealthInfo } from "@/utils/bmr";
+import { ApiClient } from "@/api/ApiClient";
 
-type MainState = UserHealthInfo & {};
+type MainState = UserHealthInfo & { apiHealthCheck: string };
 
 export default class Main extends Component<PropsType, MainState> {
   $header: Element;
   $bottomNav: Element;
 
   handleChangeWeight: (e: InputEvent) => void;
-  handleClickWeight: () => void;
 
   constructor(props: PropsType) {
     super(props);
@@ -24,7 +24,22 @@ export default class Main extends Component<PropsType, MainState> {
       height: 0,
       gender: Gender.Male,
       age: 0,
+      apiHealthCheck: "",
     } as MainState;
+
+    this.willMount = () => {
+      const api = new ApiClient("http://localhost:5001");
+
+      api
+        .get<{ data: string }>("health")
+        .then((response) => {
+          this.setState({ ...this.state, apiHealthCheck: response.data });
+        })
+        .catch((error) => {
+          console.error(error);
+          this.setState({ ...this.state, apiHealthCheck: "shut down" });
+        });
+    };
 
     this.handleChangeWeight = (e: InputEvent) => {
       const target = e.target as HTMLInputElement;
@@ -38,11 +53,15 @@ export default class Main extends Component<PropsType, MainState> {
     return jsx`
       <div class='main-page'>
         ${this.$header}
-        ${this.state.weight}
-        <div class='flex-box-column'>
-          <input type="number" value=${this.state.weight} onChange=${this.handleChangeWeight} required>
-        </div>
-     
+          <div class='position-center'>
+            <div class='flex-box-column'>
+              <p>api status: ${this.state.apiHealthCheck}<p>
+              <p>number: ${this.state.weight || "0"}<p>
+              <input class='custom-input' type="number" value=${
+                this.state.weight
+              } onChange=${this.handleChangeWeight} required>
+            </div>
+          </div>
       </div>
     `;
   }
