@@ -52,8 +52,6 @@
 
 
 
-
-
 ## React Diffing 알고리즘 구현
 이 코드는 React의 가상 DOM 조정 프로세스에서 중요한 부분인 React Diffing 알고리즘의 구현입니다. 
 이 알고리즘은 가상 DOM과 실제 DOM 간의 차이를 효율적으로 식별하고 실제 DOM을 업데이트합니다.
@@ -152,3 +150,5 @@ isDifferentNode 함수는 두 HTML 엘리먼트를 비교하여 다른지 여부
   // diff 함수를 모듈로 내보냄
   export default diff;
 ```
+
+
