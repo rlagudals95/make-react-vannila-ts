@@ -44,7 +44,7 @@
   * render(): HTMLElement | ChildNode | DocumentFragment: 렌더링 메서드로, 자식 클래스에서 반드시 구현되어야 합니다.
   * updateDOM(): void: DOM을 업데이트하는 메서드로, 실제 DOM을 새로운 DOM으로 교체합니다.
   * update(): void: 전체 업데이트를 수행하는 메서드로, willMount, willUpdate, updateDOM, didUpdate 메서드를 호출합니다.
-  * setState(newState: Partial<S>): State를 업데이트하고 전체 업데이트를 수행하는 메서드로, 실제 DOM을 업데이트합니다.
+  * setState(newState: Partial): State를 업데이트하고 전체 업데이트를 수행하는 메서드로, 실제 DOM을 업데이트합니다.
 
 
 * 예외 처리
