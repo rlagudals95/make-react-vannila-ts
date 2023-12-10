@@ -16,6 +16,7 @@ js와 ts로 만들어보는 SPA
   - `components`: Vanilla TypeScript로 작성된 리액트 컴포넌트
   - `core`: jsx, component, router 등 spa를 구현하는 구현체들
   - `pages`: 프로젝트 page들
+  - `api` : api 통신 인스턴스
   - `scss`: 프로젝트 style css
   - `utils`: 프로젝트에 범용적으로 사용되는 util
 
