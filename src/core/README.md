@@ -1,4 +1,4 @@
-# Component 클래스 
+## Component 클래스 
 
 이 코드는 간단한 React 스타일의 Component 클래스를 정의한 TypeScript 코드입니다. 
 해당 클래스는 컴포넌트의 생명주기와 DOM 업데이트를 관리하며, 각 컴포넌트 인스턴스는 고유한 ID를 갖습니다.
@@ -52,7 +52,7 @@
 
 
 
-# React Diffing 알고리즘 구현
+## React Diffing 알고리즘 구현
 이 코드는 React의 가상 DOM 조정 프로세스에서 중요한 부분인 React Diffing 알고리즘의 구현입니다. 
 이 알고리즘은 가상 DOM과 실제 DOM 간의 차이를 효율적으로 식별하고 실제 DOM을 업데이트합니다.
 
