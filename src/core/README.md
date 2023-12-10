@@ -112,6 +112,7 @@ isDifferentNode 함수는 두 HTML 엘리먼트를 비교하여 다른지 여부
 ```
 
 
+
 * diff 함수는 가상 DOM(virtualNode)과 실제 DOM(realNode) 간의 차이를 계산하고 적용합니다. 노드 제거, 노드 추가, 노드 교체와 같은 시나리오를 처리합니다.
 
 ```typescript
