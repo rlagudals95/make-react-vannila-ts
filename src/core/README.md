@@ -46,7 +46,7 @@
   * update(): void: 전체 업데이트를 수행하는 메서드로, willMount, willUpdate, updateDOM, didUpdate 메서드를 호출합니다.
   * setState(newState: Partial<S>): void: State를 업데이트하고 전체 업데이트를 수행하는 메서드로, 실제 DOM을 업데이트합니다.
 
-  예외 처리
+* 예외 처리
   * render 메서드는 자식 클래스에서 반드시 구현되어야 하며, 그렇지 않으면 에러가 발생합니다.
   * 이 클래스를 사용하여 React 스타일의 컴포넌트를 만들고 관리할 수 있습니다. 해당 컴포넌트는 가상 DOM을 사용하여 업데이트를 추적하고, State 변경 시 실제 DOM을 업데이트하여 사용자 인터페이스를 반응적으로 유지합니다.
 
