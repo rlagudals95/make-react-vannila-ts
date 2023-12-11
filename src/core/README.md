@@ -154,6 +154,7 @@ isDifferentNode 함수는 두 HTML 엘리먼트를 비교하여 다른지 여부
 ```
 
 
+
 ## JSX 구현
 
 * 구현 세부사항
