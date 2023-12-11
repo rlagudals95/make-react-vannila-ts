@@ -157,9 +157,9 @@ isDifferentNode 함수는 두 HTML 엘리먼트를 비교하여 다른지 여부
 ## JSX 구현
 
 * 구현 세부사항
- * DirtyIndex 처리
-  * "dirtyindex:"로 시작하는 특수 태그를 도입하여 JSX 표현식과 치환을 처리합니다.
-  *  DIRTY_PREFIX, DIRTY_REGEX, DIRTY_REGEX_G, 및 DIRTY_SEPERATOR_REGEX_G 상수가 dirtyindex 태그를 다루기 위해 정의되어 있습니다.
+  * DirtyIndex 처리
+    * "dirtyindex:"로 시작하는 특수 태그를 도입하여 JSX 표현식과 치환을 처리합니다.
+    *  DIRTY_PREFIX, DIRTY_REGEX, DIRTY_REGEX_G, 및 DIRTY_SEPERATOR_REGEX_G 상수가 dirtyindex 태그를 다루기 위해 정의되어 있습니다.
 
  * JSX 함수
   * jsx라는 함수가 정의되어 JSX 표현식을 처리하고 가상 DOM을 생성합니다.
