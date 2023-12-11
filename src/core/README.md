@@ -161,23 +161,23 @@ isDifferentNode 함수는 두 HTML 엘리먼트를 비교하여 다른지 여부
     * "dirtyindex:"로 시작하는 특수 태그를 도입하여 JSX 표현식과 치환을 처리합니다.
     *  DIRTY_PREFIX, DIRTY_REGEX, DIRTY_REGEX_G, 및 DIRTY_SEPERATOR_REGEX_G 상수가 dirtyindex 태그를 다루기 위해 정의되어 있습니다.
 
- * JSX 함수
-  * jsx라는 함수가 정의되어 JSX 표현식을 처리하고 가상 DOM을 생성합니다.
-  * TemplateStringsArray와 추가 인수를 받아 JSX 템플릿과 동적 값들을 나타냅니다.
-  * 이 함수는 frame 엘리먼트를 사용하여 가상 DOM을 시뮬레이션합니다.
+  * JSX 함수
+    * jsx라는 함수가 정의되어 JSX 표현식을 처리하고 가상 DOM을 생성합니다.
+    * TemplateStringsArray와 추가 인수를 받아 JSX 템플릿과 동적 값들을 나타냅니다.
+    * 이 함수는 frame 엘리먼트를 사용하여 가상 DOM을 시뮬레이션합니다.
 
- * 템플릿 처리
-  * 템플릿 문자열은 표현식을 dirtyindex 태그로 대체하기 위해 처리됩니다.
-  * 이벤트 리스너, 문자열 또는 숫자 값, 논리 속성은 적절히 대체되거나 가상 DOM에 추가됩니다.
+  * 템플릿 처리
+    * 템플릿 문자열은 표현식을 dirtyindex 태그로 대체하기 위해 처리됩니다.
+    * 이벤트 리스너, 문자열 또는 숫자 값, 논리 속성은 적절히 대체되거나 가상 DOM에 추가됩니다.
 
- * 텍스트 노드 처리
-  * dirtyindex 태그를 포함하는 가상 DOM의 텍스트 노드는 분할되어 해당하는 DOM 엘리먼트가 그 자리에 삽입됩니다.
+  * 텍스트 노드 처리
+    * dirtyindex 태그를 포함하는 가상 DOM의 텍스트 노드는 분할되어 해당하는 DOM 엘리먼트가 그 자리에 삽입됩니다.
 
-* 순회를 위한 NodeIterator
-  * NodeIterator가 사용되어 가상 DOM을 순회하고 속성 및 텍스트 노드의 dirtyindex 태그를 처리합니다.
+  * 순회를 위한 NodeIterator
+    * NodeIterator가 사용되어 가상 DOM을 순회하고 속성 및 텍스트 노드의 dirtyindex 태그를 처리합니다.
 
 
-```typescipt
+```typescript
   // dirtyindex로 시작하는 특별한 태그를 처리하기 위한 상수들
   const DIRTY_PREFIX = "dirtyindex:";
   const DIRTY_REGEX = /dirtyindex:(\d+):/;
@@ -320,6 +320,9 @@ isDifferentNode 함수는 두 HTML 엘리먼트를 비교하여 다른지 여부
   // jsx 함수를 모듈로 내보냄
   export default jsx;
 ```
+
+
+
 
 
 
