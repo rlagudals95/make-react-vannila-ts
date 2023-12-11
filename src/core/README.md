@@ -323,8 +323,55 @@ isDifferentNode 함수는 두 HTML 엘리먼트를 비교하여 다른지 여부
 ```
 
 
+## Router 구현
+
+이 TypeScript 모듈은 싱글 페이지 애플리케이션(SPA)에서 라우트를 관리하기 위한 커스텀 라우터를 정의합니다. 
+이 라우터는 브라우저의 pushState 및 popstate 이벤트를 활용하여 페이지 간에 전환하며 전체 페이지를 새로고침하지 않습니다.
+
+* 주요 특징 
+ * Route 타입
+ * Route 타입은 경로, 연관된 페이지 컴포넌트 및 선택적 리다이렉트 정보를 구조화하는데 사용됩니다.
+
+* Router 클래스
+ * Router 클래스는 주어진 루트 엘리먼트 및 라우트 정보를 기반으로 라우팅을 관리합니다.
+ * 라우터는 초기화 시 라우트 매핑을 생성하고 이벤트를 초기화합니다.
+
+* 이벤트 핸들러
+ * moveroutes 커스텀 이벤트 핸들러와 브라우저의 popstate 이벤트 핸들러가 등록되어 있습니다.
+ * moveroutes 이벤트는 라우터를 통한 경로 이동을 처리하고, popstate 이벤트는 브라우저 히스토리 상태 변경을 감지합니다.
+
+* 라우트 매핑 및 초기화
+ * 라우트 매핑은 주어진 라우트 정보를 기반으로 생성됩니다.
+ * 초기화 시에는 라우터 이벤트 및 초기 라우터 설정이 수행됩니다.
 
 
+* 사용 방법
+ * initRouter 함수를 사용하여 라우터를 초기화하고 $app과 라우트 정보를 전달합니다.
+ * $router 객체를 사용하여 주어진 경로로 이동하는 push 함수를 호출합니다.
+ * 라우트에 대한 페이지 컴포넌트는 Route 타입을 따르도록 구현되어야 합니다.
 
+
+* 코드예시
+
+```typescript
+
+const routes: Route[] = [
+  { path: "/", page: Main as typeof Component },
+  { path: "/sub", page: Sub as typeof Component },
+];
+
+const $app = document.querySelector("#app");
+
+// $app이 존재하는 경우 초기화 및 라우터 설정을 수행
+if ($app) {
+  // window.virtualDOM에 새로운 div 엘리먼트를 생성하여 할당
+  window.virtualDOM = document.createElement("div");
+  // virtualDOM에 "app"이라는 id를 부여
+  window.virtualDOM.id = "app";
+  // initRouter 함수를 호출하여 라우터 초기화. $app과 라우터 설정(routes)을 전달
+  initRouter({ $app: window.virtualDOM, routes });
+}
+  
+```
 
 
